@@ -23,6 +23,8 @@ class HomeViewController: UIViewController {
         
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
+        
+        homeFeedTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 300))
     }
 
     override func viewDidLayoutSubviews() {
@@ -46,8 +48,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                                                        for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
-        
-        cell.textLabel?.text = "Atrur IOS Developer"
         
         return cell
     }
