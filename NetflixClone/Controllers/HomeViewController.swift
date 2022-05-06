@@ -16,10 +16,10 @@ class HomeViewController: UIViewController {
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         return table
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
         
@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
         
-        getTrendingMovies()
+        fetchData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -50,8 +50,9 @@ class HomeViewController: UIViewController {
         ]
         navigationController?.navigationBar.tintColor = .white
     }
-
-    private func getTrendingMovies() {
+    
+    private func fetchData() {
+        
         APICaller.shared.getTrendingMovies { results in
             switch results {
                 case .success(let movies):
@@ -60,7 +61,35 @@ class HomeViewController: UIViewController {
                     print(error)
             }
         }
+        
+        APICaller.shared.getTrendingTv { results in
+            switch results {
+                case .success(let tv):
+                    print(tv)
+                case .failure(let error):
+                    print(error)
+            }
+        }
+        
+        APICaller.shared.getUpcomingMovies { results in
+            switch results {
+                case .success(let movies):
+                    print(movies)
+                case .failure(let eroor):
+                    print(eroor)
+            }
+        }
+        
+        APICaller.shared.getTopRated { results in
+            switch results {
+                case .success(let movies):
+                    print(movies)
+                case .failure(let error):
+                    print(error)
+            }
+        }
     }
+    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -77,7 +106,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: CollectionViewTableViewCell.identifier,
             for: indexPath) as? CollectionViewTableViewCell else { return UITableViewCell() }
-
+        
         return cell
     }
     
@@ -107,4 +136,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
     }
+    
 }
+
