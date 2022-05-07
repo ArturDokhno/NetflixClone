@@ -7,6 +7,14 @@
 
 import UIKit
 
+enum Sections: Int {
+    case TrendingMoview = 0
+    case TrendingTv = 1
+    case Popular = 2
+    case UpcomingMoview = 3
+    case TopRated = 4
+}
+
 class HomeViewController: UIViewController {
     
     let sectionTitles = ["Trending Movies", "Trending Tv", "Popular", "Upcoming Moview", "Top rated"]
@@ -30,8 +38,6 @@ class HomeViewController: UIViewController {
         
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
-        
-        fetchData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -51,45 +57,6 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
     }
     
-    private func fetchData() {
-        
-        APICaller.shared.getTrendingMovies { results in
-            switch results {
-                case .success(let movies):
-                    print(movies)
-                case .failure(let error):
-                    print(error)
-            }
-        }
-        
-        APICaller.shared.getTrendingTv { results in
-            switch results {
-                case .success(let tv):
-                    print(tv)
-                case .failure(let error):
-                    print(error)
-            }
-        }
-        
-        APICaller.shared.getUpcomingMovies { results in
-            switch results {
-                case .success(let movies):
-                    print(movies)
-                case .failure(let eroor):
-                    print(eroor)
-            }
-        }
-        
-        APICaller.shared.getTopRated { results in
-            switch results {
-                case .success(let movies):
-                    print(movies)
-                case .failure(let error):
-                    print(error)
-            }
-        }
-    }
-    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -106,6 +73,66 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: CollectionViewTableViewCell.identifier,
             for: indexPath) as? CollectionViewTableViewCell else { return UITableViewCell() }
+        
+        switch indexPath.section {
+            case Sections.TrendingMoview.rawValue:
+                
+                APICaller.shared.getTrendingMovies { result in
+                    switch result {
+                        case .success(let title):
+                            cell.configure(with: title)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                    }
+                }
+                
+            case Sections.TrendingTv.rawValue:
+                
+                APICaller.shared.getTrendingTv { result in
+                    switch result {
+                        case .success(let title):
+                            cell.configure(with: title)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                    }
+                }
+                
+            case Sections.Popular.rawValue:
+                
+                APICaller.shared.getPopular { result in
+                    switch result {
+                        case .success(let title):
+                            cell.configure(with: title)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                    }
+                }
+                
+            case Sections.UpcomingMoview.rawValue:
+                
+                APICaller.shared.getUpcomingMovies { result in
+                    switch result {
+                        case .success(let title):
+                            cell.configure(with: title)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                    }
+                }
+                
+            case Sections.TopRated.rawValue:
+                
+                APICaller.shared.getTopRated { result in
+                    switch result {
+                        case .success(let title):
+                            cell.configure(with: title)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                    }
+                }
+                
+            default:
+                return UITableViewCell()
+        }
         
         return cell
     }

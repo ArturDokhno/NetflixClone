@@ -108,8 +108,8 @@
 		75A0D2D9281F18AC006282F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				758E65E728202962008F92B4 /* HeroHeaderUIView.swift */,
 				75A0D2DF281F1954006282F1 /* CollectionViewTableViewCell.swift */,
+				758E65E728202962008F92B4 /* HeroHeaderUIView.swift */,
 				75B47493282566CB008814FF /* TitleCollectionViewCell.swift */,
 			);
 			path = View;
