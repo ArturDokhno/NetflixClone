@@ -8,10 +8,10 @@
 import UIKit
 
 enum Sections: Int {
-    case TrendingMoview = 0
+    case TrendingMovies = 0
     case TrendingTv = 1
     case Popular = 2
-    case UpcomingMoview = 3
+    case UpcomingMovies = 3
     case TopRated = 4
 }
 
@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
         
-        configureNavbar()
+        configureNavBar()
         
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
         homeFeedTable.frame = view.bounds
     }
     
-    private func configureNavbar() {
+    private func configureNavBar() {
         var image = UIImage(named: "netflixLogo")
         image = image?.withRenderingMode(.alwaysOriginal)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
@@ -75,7 +75,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             for: indexPath) as? CollectionViewTableViewCell else { return UITableViewCell() }
         
         switch indexPath.section {
-            case Sections.TrendingMoview.rawValue:
+            case Sections.TrendingMovies.rawValue:
                 
                 APICaller.shared.getTrendingMovies { result in
                     switch result {
@@ -108,7 +108,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                     }
                 }
                 
-            case Sections.UpcomingMoview.rawValue:
+            case Sections.UpcomingMovies.rawValue:
                 
                 APICaller.shared.getUpcomingMovies { result in
                     switch result {

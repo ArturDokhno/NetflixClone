@@ -20,7 +20,7 @@ class TitleTableViewCell: UITableViewCell {
         return button
     }()
     
-    private let titlelabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -36,7 +36,7 @@ class TitleTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(titlesPosterUIImageView)
-        contentView.addSubview(titlelabel)
+        contentView.addSubview(titleLabel)
         contentView.addSubview(playTitleButton)
         
         applyConstraints()
@@ -54,9 +54,9 @@ class TitleTableViewCell: UITableViewCell {
             titlesPosterUIImageView.widthAnchor.constraint(equalToConstant: 100)
         ]
         
-        let titlelabelConstraints = [
-            titlelabel.leadingAnchor.constraint(equalTo: titlesPosterUIImageView.trailingAnchor, constant: 20),
-            titlelabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        let titleLabelConstraints = [
+            titleLabel.leadingAnchor.constraint(equalTo: titlesPosterUIImageView.trailingAnchor, constant: 20),
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ]
         
         let playTitleButtonConstraints = [
@@ -65,14 +65,14 @@ class TitleTableViewCell: UITableViewCell {
         ]
         
         NSLayoutConstraint.activate(titlesPosterUIImageViewConstraints)
-        NSLayoutConstraint.activate(titlelabelConstraints)
+        NSLayoutConstraint.activate(titleLabelConstraints)
         NSLayoutConstraint.activate(playTitleButtonConstraints)
     }
     
     public func configure(with model: TitleViewModel) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.posterURL)") else { return }
         titlesPosterUIImageView.sd_setImage(with: url, completed: nil)
-        titlelabel.text = model.titleName
+        titleLabel.text = model.titleName
     }
 
 }
