@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		753C267F282A7CD400FD6757 /* NetflixCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C267E282A7CD400FD6757 /* NetflixCloneUITests.swift */; };
-		753C2681282A7CD400FD6757 /* NetflixCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C2680282A7CD400FD6757 /* NetflixCloneUITestsLaunchTests.swift */; };
 		753C2688282AA3F400FD6757 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C2687282AA3F400FD6757 /* SearchResultsViewController.swift */; };
 		75443E772822BB9B00359BF7 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75443E762822BB9B00359BF7 /* APICaller.swift */; };
 		7557DEA1281E9B7C00040B00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7557DEA0281E9B7C00040B00 /* AppDelegate.swift */; };
@@ -43,8 +41,6 @@
 
 /* Begin PBXFileReference section */
 		753C267C282A7CD400FD6757 /* NetflixCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetflixCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		753C267E282A7CD400FD6757 /* NetflixCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixCloneUITests.swift; sourceTree = "<group>"; };
-		753C2680282A7CD400FD6757 /* NetflixCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		753C2687282AA3F400FD6757 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		75443E762822BB9B00359BF7 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		7557DE9D281E9B7C00040B00 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,15 +83,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		753C267D282A7CD400FD6757 /* NetflixCloneUITests */ = {
-			isa = PBXGroup;
-			children = (
-				753C267E282A7CD400FD6757 /* NetflixCloneUITests.swift */,
-				753C2680282A7CD400FD6757 /* NetflixCloneUITestsLaunchTests.swift */,
-			);
-			path = NetflixCloneUITests;
-			sourceTree = "<group>";
-		};
 		753C2689282AA48900FD6757 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				7557DE9F281E9B7C00040B00 /* NetflixClone */,
-				753C267D282A7CD400FD6757 /* NetflixCloneUITests */,
 				7557DE9E281E9B7C00040B00 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -311,8 +297,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				753C267F282A7CD400FD6757 /* NetflixCloneUITests.swift in Sources */,
-				753C2681282A7CD400FD6757 /* NetflixCloneUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
