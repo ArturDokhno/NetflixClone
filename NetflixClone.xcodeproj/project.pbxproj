@@ -117,8 +117,6 @@
 				75A0D2D9281F18AC006282F1 /* View */,
 				75A0D2DA281F18B1006282F1 /* ViewModels */,
 				7557DEB4281E9E6200040B00 /* Controllers */,
-				7557DEA0281E9B7C00040B00 /* AppDelegate.swift */,
-				7557DEA2281E9B7C00040B00 /* SceneDelegate.swift */,
 				7557DEA9281E9B8000040B00 /* Assets.xcassets */,
 				7557DEAB281E9B8000040B00 /* LaunchScreen.storyboard */,
 				7557DEAE281E9B8000040B00 /* Info.plist */,
@@ -167,6 +165,8 @@
 		75A0D2DC281F1902006282F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7557DEA0281E9B7C00040B00 /* AppDelegate.swift */,
+				7557DEA2281E9B7C00040B00 /* SceneDelegate.swift */,
 				75B4746D2823CFB1008814FF /* Extensions.swift */,
 			);
 			path = Resources;
